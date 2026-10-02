@@ -1,0 +1,45 @@
+{
+  "packages": {
+    "pdf-lib": "1.17.1",
+    "pdfjs-dist": "5.6.205"
+  },
+  "files": [
+    {
+      "package": "pdf-lib",
+      "source": "pdf-lib/dist/pdf-lib.min.js",
+      "path": "pdf-lib.min.js",
+      "bytes": 525099,
+      "sha256": "0f9a5cad07941f0826586c94e089d89b918c46e5c17cf2d5a3c6f666e3bc694f"
+    },
+    {
+      "package": "pdf-lib",
+      "source": "pdf-lib/LICENSE.md",
+      "path": "pdf-lib-LICENSE.md",
+      "bytes": 1070,
+      "sha256": "f2c9fc00fdb66eb99ac156ba52d734af66d8d309f65753ae809ad34ee2883bcb"
+    },
+    {
+      "package": "pdfjs-dist",
+      "source": "pdfjs-dist/build/pdf.min.mjs",
+      "path": "pdf.min.mjs",
+      "bytes": 430304,
+      "sha256": "2221020ea508479dcc1221f36f2731656339230097c69ba1f78802832c0ad685"
+    },
+    {
+      "package": "pdfjs-dist",
+      "source": "pdfjs-dist/build/pdf.worker.min.mjs",
+      "path": "pdf.worker.min.mjs",
+      "bytes": 1244253,
+      "sha256": "51a2fd1ea47f1a9b0814e65e0c336c739c54957795ee774e8f93cb81e8028dd1"
+    },
+    {
+      "package": "pdfjs-dist",
+      "source": "pdfjs-dist/LICENSE",
+      "path": "pdfjs-LICENSE",
+      "bytes": 10174,
+      "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594"
+    }
+  ],
+  "total_bytes": 2210900,
+  "network_downloads": 0
+}

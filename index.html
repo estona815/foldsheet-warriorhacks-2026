@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Preview and export a local PDF in booklet printing order.">
+  <title>FoldSheet — booklet print planner</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="vendor/pdf-lib.min.js" defer></script>
+  <script src="src/app.mjs" type="module"></script>
+</head>
+<body>
+  <header><a class="brand" href="./">FoldSheet<span>Booklet print planner</span></a><button id="sample" type="button">Open sample</button></header>
+  <main>
+    <section class="intro"><h1>Check the fold. Then print.</h1><p>Turn a PDF into booklet spreads. Rehearse the page order before a community workshop or club print run.</p></section>
+    <div class="workspace">
+      <aside aria-label="PDF and print settings">
+        <label class="upload" for="file">Choose PDF<input id="file" type="file" accept="application/pdf,.pdf"></label>
+        <p class="hint">1–64 pages · up to 20 MiB<br>Your document stays in this browser.</p>
+        <p id="document-info">No PDF selected</p>
+        <label for="paper">Paper size</label><select id="paper"><option value="A4">A4 landscape</option><option value="Letter">Letter landscape</option></select>
+        <label for="margin">Margin (mm)</label><input id="margin" type="number" value="8" min="0" max="20" step="1">
+        <label for="rotation">Back-side rotation</label><select id="rotation"><option value="0">0° — same orientation</option><option value="180">180° — upside down</option></select>
+        <p class="hint">Printer duplex settings vary. Test one sheet before printing a full run.</p>
+        <button class="primary" id="export" type="button" disabled>Export PDF</button>
+        <button id="clear" type="button" disabled>Clear document</button>
+      </aside>
+      <section class="preview" aria-label="Print preview">
+        <div class="toolbar"><label for="sheet">Sheet</label><select id="sheet" disabled><option>—</option></select><div class="sides" aria-label="Sheet side"><button id="front" type="button" aria-pressed="true" disabled>Front</button><button id="back" type="button" aria-pressed="false" disabled>Back</button></div></div>
+        <p id="status" role="status" aria-live="polite">Open the 12-page sample or choose your own PDF.</p>
+        <div class="paper"><div id="empty">A print spread will appear here.<span>Actual PDF pages, in the order your printer needs.</span></div><canvas id="canvas" hidden aria-label="Rendered booklet spread"></canvas></div>
+        <div class="page-labels" id="page-labels" aria-live="polite"></div>
+        <p class="fold-note">Stack sheets in their numbered order, fold at the center, and read from page 1. Blank pages are added at the end.</p>
+      </section>
+    </div>
+    <section class="order"><h2>Every page has a place</h2><p id="summary">Load a PDF to see the complete printing plan.</p><div class="table-scroll"><table><caption class="sr-only">Sheet front and back page order before optional back-side rotation</caption><thead><tr><th>Sheet</th><th>Front left</th><th>Front right</th><th>Back left</th><th>Back right</th></tr></thead><tbody id="order-body"></tbody></table></div></section>
+    <section class="calibration"><h2>Test your printer first</h2><p>Download a two-sided calibration sheet, print at actual size on your chosen paper, and inspect the TOP labels. Adjust your printer’s duplex setting or the back-side rotation before a full run.</p><button id="calibrate" type="button">Download calibration PDF</button><p class="hint">FoldSheet lays out pages. It cannot detect your printer’s feed direction, binding behavior or printable area. Thick booklets may need smaller signatures or professional finishing.</p></section>
+  </main>
+  <footer><p>No accounts. No uploads. No model calls.</p><p>Annotated, interactive and encrypted PDFs are unsupported. PDF output is not a privacy sanitizer.</p></footer>
+</body>
+</html>
